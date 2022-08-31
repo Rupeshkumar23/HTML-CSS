@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} 
+.login_Page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+    margin: 10px 0;
+    font-size: 30px;
+    padding: 10px 0;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.login_container{
+    margin: 10px 0;
+    padding: 20px;
+    border: 1px solid rgb(207, 189, 189);
+    border-radius: 10px;
+    width: 300px;
+}
+.signIn{
+    margin-bottom:10px;
+    font-size: 24px;
+    font-weight: 500; 
+}
+.input_box{
+    display: flex;
+    flex-direction: column;
+    padding-bottom:15px;
+    row-gap: 4px;
+    
+}
+.input_box label{
+   font-weight: bold;
+   display: flex;
+   justify-content: space-between;
+  
+}
+.input_box input{
+    padding: 5px 0;
+
+}
+.signInBtn input{
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    background: rgb(20, 19, 16);
+    background: linear-gradient(0deg, rgb(250, 236, 203) 0%, rgb(240, 193, 75) 100%);
+    border-style: inset solid;
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: #221f175d;
+    font-weight: 400;
+}
+.signInBtn input:hover{
+    background: linear-gradient(0deg, rgb(250, 236, 203) 0%, rgb(240, 193, 75) 50%);
+}
+.blue{
+   color:#0066c0; 
+   cursor: pointer;
+   
+
+}
+.blue:hover{
+    text-decoration: underline;
+    color:#fabb45;
+
+}
+.Privacy_note,.keep_signed{
+    margin: 10px 0;
+}
+.newTxt{
+    margin:20px 0 10px 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: rgba(207, 207, 207,0.5);
+    height: 1px;
+    color: gray;  
+    
+}
+.newTxt span{
+    position: relative;
+    top:-7px;
+    background-color: white;
+    padding: 0 5px;
+}
+.createBtn{
+    margin-top: 20px;
+    background: #e7e9ec; 
+}
+.createBtn input{
+    width: 100%;
+    text-align: center;
+    background-color: #f5f5f57e;
+    padding: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400; 
+    border-color: #8f8f8f8a;  
+}
+.createBtn input:hover{
+    background-color: #e9e7e78e;
+}
+.footer{
+    background-color: #f5f3f3;
+    padding-top: 40px;
+    margin-top:30px;
+    width: 100%;
+    height:50vh;
+    display: flex;
+    flex-direction: column;  
+}
+.footer ul {
+    display: flex;
+    gap:20px;
+    list-style: none;
+    justify-content: center;
+ }
+.copyRight{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
