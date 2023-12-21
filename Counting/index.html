@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: #000;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+        h1{
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .con_3 {
+            font-size: 4rem !important;
+            font-weight: bolder;
+            color: #C39A5C!important;
+        }
+        .se_v{
+            display: flex;
+            width: 40%;
+            justify-content: space-between; 
+        }
+        .con_1{
+            font-size: 2rem;
+        }
+        .group{
+            display: flex;
+            justify-content: space-between;
+            width: 35%;
+            font-size: 1.5rem;
+            color: #C39A5C;
+        }
+        .elementor-counter-number{
+            color: #ffffff;
+            font-size: 3rem;
+            font-weight: bolder;
+        }
+        .wpr-highlight-underline-zigzag {
+            stroke: #C39A5C;
+            stroke-width: 10px;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 1.2s linear infinite;
+           
+        }
+
+        @keyframes dash {
+            0% {
+                stroke-dashoffset: 1000;
+                opacity: 1;
+            }
+
+            50% {
+                stroke-dashoffset:-250 ;
+                opacity: 1;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 0;
+            }
+        }
+        .svg_U{
+            position: absolute;
+            left: 59rem;
+            top: 16.5rem;
+        }
+    </style>
+</head>
+<body style="text-align: center">
+    <h1>We Have Delivered</h1>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 150" class=" svg_U wpr-highlight-underline-zigzag" preserveAspectRatio="none">
+        <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+    </svg>
+
+    <div class="counter elementor-counter-number con_3" data-duration="2000" data-to-value="10000000" data-from-value="0" data-delimiter=",">10,000,000</div>
+    <p class="con_1">Content Views and Counting</p>
+    <div class="se_v">
+    <div class="counter elementor-counter-number" data-duration="2000" data-to-value="7000" data-from-value="0" data-delimiter=",">7000</div>
+    <div class="counter elementor-counter-number" data-duration="2000" data-to-value="2000" data-from-value="0" data-delimiter=",">2000</div>
+    <div class="counter elementor-counter-number" data-duration="2000" data-to-value="3000" data-from-value="0" data-delimiter=",">3000</div>
+</div>
+<div class="group">
+<p>Leads</p>
+<p>Sales</p>
+<p>Content</p>
+</div>
+
+    <script>
+    // Select all elements with the class "counter"
+let countElements = document.querySelectorAll(".counter");
+
+// Iterate over each element with the class "counter"
+countElements.forEach((countElement) => {
+    // Retrieve data attributes from the current element
+    let toValue = parseInt(countElement.getAttribute("data-to-value"));
+    let fromValue = parseInt(countElement.getAttribute("data-from-value"));
+    let duration = parseInt(countElement.getAttribute("data-duration"));
+    let delimiter = countElement.getAttribute("data-delimiter");
+
+    // Initialize variable to store the start timestamp for animation
+    let startTimestamp;
+
+    // Define the function to update the counter
+    function updateCounter(timestamp) {
+        // If startTimestamp is not set, set it to the current timestamp
+        if (!startTimestamp) {
+            startTimestamp = timestamp;
+        }
+
+        // Calculate the progress of the animation
+        let progress = timestamp - startTimestamp;
+
+        // Calculate the current value based on the easing function
+        let value = Math.easeInOutQuad(progress, fromValue, toValue - fromValue, duration);
+
+        // Update the inner HTML of the element with the formatted value and "+"
+        countElement.innerHTML = formatNumberWithCommas(value) + "+";
+
+        // Continue the animation if progress is less than the specified duration
+        if (progress < duration) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            // Stop the animation and set the final value with "+"
+            countElement.innerHTML = formatNumberWithCommas(toValue) + "+";
+        }
+    }
+
+    // Function to format a number with commas
+    function formatNumberWithCommas(number) {
+        return number.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, delimiter);
+    }
+
+    // Easing function for smooth animation
+    Math.easeInOutQuad = function (t, b, c, d) {
+        t /= d; 
+        if (t < 0.5) return c / 2 * t * t + b;
+        t -= 0.5;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+    // Start the animation by requesting the first animation frame
+    requestAnimationFrame(updateCounter);
+});
+
+    </script>
+</body>
+</html>
